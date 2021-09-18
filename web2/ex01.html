@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex01|buoi2</title></title>
+    <script language="JavaScript">
+        function doimau(){
+            var str = document.form1.text1.value;
+            document.body.style.backgroundColor=str;
+         }
+    </script>
+</head>
+<body style ="background-color:lightblue; text-align: center;">
+    <h1> Đổi màu bằng button</h1>
+    <form action="" name="form1" method="">
+        <input type="text" name="text1">
+        <input type="button" name="b1" value="OK" onClick="doimau()">
+        <input type="reset" name="r2" value="Reset">
+    </form>
+</body>
+</html>
