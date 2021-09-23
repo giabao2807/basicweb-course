@@ -5,52 +5,67 @@
 </head>
 <body>
     <div class="header">
-        <div class="brand">
-            <img src=".\image\logo.png" alt="" class="logo">
-        </div>
-        <input type="search" placeholder="tìm kiếm thông tin" id="" class="search">
+      <div class="brand">
+        <img src="./logo.png" class="logo">
+      </div>
+      <input type="search" placeholder="Tìm kiếm thông tin" class="search">
     </div>
     <ul class="menu">
-        <li>Home</li>
-        <li>Giới thiệu</li>
-        <li>Tuyển sinh</li>
-        <li>Đào tạo</li>
-        <li>Nghiên cứu</li>
-        <li>Hợp tác</li>
-        <li>Sinh viên</li>
-        <li>Cực sinh viên</li>
-        <li>Liên hệ</li>
+      <li>Home</li>
+      <li>Giới thiệu</li>
+      <li>Tuyển sinh</li>
+      <li>Đào tạo</li>
+      <li>Nghiên cứu khoa học</li>
+      <li>Hợp tác</li>
+      <li>Sinh viên</li>
+      <li>Cựu sinh viên</li>
+      <li>Liên hệ</li>
     </ul>
-    <div>Trang chủ/Khoa CNTT</div>
-</body>
-<style>
-    .header{
-        display: flex;
-        justify-content: space-between;
+    <div class="bread-crumb">Trang chủ / Khoa Công nghệ thông tin</div>
+  </body>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
     }
-    .logo{
-        width: 400px;
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .search{
-        width: 400px;
-        height: 20px;
-        border-radius: 6px;
-        border: 2px solid lightgray;
+  
+    .brand {
+      display: flex;
+      align-items: center;
     }
-
-    .menu{
-        display: flex;
-        list-style: none;
-        text-transform: uppercase;
-        font-weight: bold;
-        
+  
+    .logo {
+      width: 400px;
     }
-    .menu li{
-        margin-right: 25px;
+  
+    .search {
+      border-radius: 9999px;
+      border: 1px solid gray;
+      padding: 5px;
+      width: 200px;
     }
-    .bread-crumb{
-        background-color: lightgray;
-        padding: 10px;
+  
+    .menu {
+      display: flex;
+      list-style-type: none;
+      text-transform: uppercase;
+      font-weight: bold;
     }
-</style>
-</html>
+  
+    .menu>li {
+      margin-right: 20px;
+    }
+  
+    .bread-crumb {
+      background-color: lightgray;
+      padding: 10px;
+    }
+  </style>
+  
+  </html>

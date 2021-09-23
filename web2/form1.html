@@ -6,17 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form1|Gia Bảo</title>
 </head>
-<body style="background-color: lightgreen; text-align: center;">
-    <h1> Login </h1>
-    <form action="" name="form1" method="">
+<body>
+    <div class="container">
+      <h1>Login</h1>
+      <form name="form1" method="" action="">
         <label for="username">Username</label>
-        <input type="text" name="txtname" id="username" style="margin-top: 10px;">
+        <input type="text" name="username" id="username">
         <br>
         <label for="password">Password</label>
-        <input type="text" id="password" name="txtpass"style="margin-top: 10px;" >
+        <input type="password" name="password" id="password" style="margin-top: 10px">
         <br>
-        <input type="button" name="ok" value="OK" id="" style= "margin-top: 10px;">
-        <input type="reset" name="reset" value="Reset" id="">
-    </form>
-</body>
-</html>
+        <input type="submit" value="OK" style="margin-top: 10px">
+        <input type="reset">
+      </form>
+    </div>
+  </body>
+  <style>
+    body {
+      background-color: lightgreen;
+      color: darkgreen;
+      font-family: Arial, Helvetica, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+  
+    .container {
+      background-color: white;
+      border: 2px solid darkgreen;
+      border-radius: 4px;
+      box-shadow: darkgreen 0px 3px 8px;
+      padding: 20px;
+      text-align: center;
+    }
+  
+    h1 {
+      text-align: center;
+    }
+  
+    input {
+      border: 1px solid darkgreen;
+      border-radius: 4px;
+      padding: 4px;
+    }
+  
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: darkgreen;
+      color: white;
+      width: 80px;
+      margin-top: 20px;
+    }
+  </style>
+  
+  </html> 

@@ -6,28 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form2|Gia Bảo</title>
 </head>
-<body style="background-color: lightblue;">
-    <h1 style="color: red; text-transform: uppercase; text-align: center;">ví dụ về tạo form</h1>
-    <form action="" name="form2" method="" style="margin-left:40%;">
+<body">
+  <div class="container">
+    <h1>Ví dụ về tạo form</h1>
+    <form name="form2" method="" action="">
+      <div class="sp-bw">
         <label for="textbox">Text box:</label>
-        <input type="text" id="textbox" name="txt1" style="margin-top: 10px;">
-        <br>
+        <input type="text" name="textbox" id="textbox">
+      </div>
+      <div class="sp-bw">
         <label for="textarea">Text Area:</label>
-        <input type="textarea" name="tarea" id="textarea" style="margin-top: 10px;">
-        <br>
-        <label for="filebox">File box: </label>
-        <input type="text" name="txt2" id="filebox" style="margin-top: 10px;">
-        <input type="button" name="browse" value="Browse">
-        <br>
-        <input type="radio" name="radio" id="radio" style="margin-top: 2px;">
+        <input type="textarea" name="textarea" id="textarea" style="margin-top: 10px;">
+      </div>
+      <div class="sp-bw">
+        <label for="filebox">File box:</label>
+        <input type="text" name="filebox" id="filebox" style="margin-top: 10px;">
+        <input type="button" name="browser" value="Browser" id="browser">
+      </div>
+      <div class="left">
+        <input type="radio" name="radio" style="margin-top: 10px">
         <label for="radio">Radio button</label>
-        <br>
-        <input type="checkbox" name="checkbox" id="checkbox" style="margin-top: 2px;">
+      </div>
+      <div class="left">
+        <input type="checkbox" name="checkbox">
         <label for="checkbox">Check box</label>
-        <br>
-        <input type="button" value="Submit">
-        <input type="reset" value="Reset">
-        <br>
+      </div>
+      <div>
+        <input type="submit" style="margin-top: 10px">
+        <input type="reset">
+      </div>
     </form>
-</body>
-</html>
+  </div>
+  </body>
+  <style>
+    body {
+      background-color: lightblue;
+      color: darkblue;
+      font-family: Arial, Helvetica, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border: 2px solid darkblue;
+      border-radius: 4px;
+      box-shadow: darkblue 0px 3px 8px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form>.sp-bw {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    form>.left {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+    }
+
+    input {
+      width: 230px;
+      border: 1px solid darkblue;
+      border-radius: 4px;
+      padding: 4px;
+    }
+
+    input[name="filebox"] {
+      width: 135px;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: 30px;
+    }
+
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: darkblue;
+      color: white;
+      width: 80px;
+      margin-top: 20px;
+    }
+
+    input[type="button"] {
+      margin-top: 10px;
+    }
+  </style>
+
+</html> 
