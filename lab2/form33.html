@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form33|String</title>
+    <script>
+        function lowerUpper(){
+            let st1 = document.form1.text1.value;
+            let st2="";
+            for(var i =0;i<st1.length;i++){
+                if(st1.charCodeAt(i)<97)
+                st2 += st1.charAt(i).toLowerCase();
+                else
+                st2 += st1.charAt(i).toUpperCase();
+            }
+            document.form1.text2.value=st2;
+        }
+    </script>
+
+</head>
+<body onload="document.form1.text1.focus()">
+    <h1>ToLowercase ToUppercase</h1>
+    <form action="" name="form1">
+        <input type="text" name="text1" id="" placeholder="Input text..." onblur="lowerUpper()">
+        <input type="text" name="text2" id="" placeholder="Output text">
+    </form>
+</body>
+<style>
+    body{
+        background-color: lightpink;
+        color: palevioletred;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+    input{
+        border: 1px solid palevioletred;
+        border-radius: 3px;
+        padding: 4px;
+        margin-top: 10px;
+    }
+</style>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form22|With</title>
+    <script>
+        function addPrice(amount){
+            with(this){
+                price=amount;
+            }
+        }
+        function book(title,author,content){
+            this.title=title;
+            this.author=author;
+            this.content=content;
+            this.price = 0;
+            this.addPrice=addPrice;
+        }
+    </script>
+</head>
+<body>
+    <script>
+        var Javabook = new book("Java","Sun","Java Spring")
+        Javabook.addPrice(50);
+        document.write("Book title: " + Javabook.title  + "<br>")
+        document.write("Book author: " + Javabook.author  + "<br>")
+        document.write("Book content: " + Javabook.content  + "<br>")
+        document.write("Book price: " + Javabook.price  + "<br>")
+    </script>
+</body>
+<style>
+    body{
+        background-color: lightsalmon;
+        color:salmon;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+</style>
+</html>

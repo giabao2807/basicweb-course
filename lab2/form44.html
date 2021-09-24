@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form44|Select box</title>
+    <script>
+        function changeSelectIndex(){
+            var st = document.form1.text1.value
+            document.form1.select1.selectedIndex=st;
+        }
+    </script>
+</head>
+<body onload="document.form1.text1.focus()">
+    <div class="container">
+        <h1>Change Select Index</h1>
+        <form action="" name="form1">
+            <select name="select1" id="">
+                <option value="Index 0">Index 0</option>
+                <option value="Index 1">Index 1</option>
+                <option value="Index 2">Index 2</option>
+                <option value="Index 3">Index 3</option>
+            </select>
+            <input type="text" name="text1" id="" >
+            <input type="button" value="Click here" onclick="changeSelectIndex()">
+        </form>
+    </div>
+</body>
+<style>
+    body{
+        background-color: lightgreen;
+        color: darkgreen;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        height:100vh;
+        justify-content: center;
+        align-items: center;
+        margin:0;
+    }
+
+    .container{
+        background-color: white;
+        border: 2px solid darkgreen;
+        border-radius: 4px;
+        box-shadow: darkgreen 0px 3px 8px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    h1{
+        text-align: center;
+    }
+    input,select{
+        color: darkgreen;
+        font-weight: bold;
+        border: 1px solid darkgreen;
+        border-radius: 4px;
+        margin: 10px 0px 10px 0px;
+    }
+    input[type="button"]{
+        background-color: darkgreen;
+        color: white;
+        width: 80px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+
+    input[type="button"]:hover{
+        background-color: green;
+    }
+</style>
+</html>

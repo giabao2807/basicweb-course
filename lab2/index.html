@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab|Gia Bao</title>
+</head>
+<body>
+    <iframeset>
+        <iframe name="t1" src="./t1.html"></iframe>
+        <iframeset>
+            <iframe src="./t2.html" name ="t2"  target="t3" frameborder="0"></iframe>
+            <iframe src="./t3.html" name="t3"  frameborder="0"></iframe>
+            <iframe src="./t4.html" name="t4" frameborder="0"></iframe>
+        </iframeset>
+        <iframe src="./t5.html" name="t5" frameborder="0"></iframe>
+    </iframeset>
+</body>
+<style>
+      body {
+    margin: 0;
+  }
+
+  iframe {
+    border: none;
+  }
+
+  iframe[name="t1"] {
+    height: 150px;
+    width: 100%;
+    background-color: palevioletred;
+  }
+
+  iframe[name="t2"],
+  iframe[name="t4"] {
+    height: 500px;
+    width: 20%;
+    background-color: paleturquoise;
+  }
+
+  iframe[name="t3"] {
+    height: 500px;
+    width: 59.4%;
+    background-color: palegoldenrod;
+  }
+
+  iframe[name="t5"] {
+    height: 125px;
+    width: 100%;
+    background-color: palegreen;
+  }
+</style>
+</html>
