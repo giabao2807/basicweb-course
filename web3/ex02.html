@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        function thongbao(){
+            var str = document.form1.text1.value;
+            document.bgColor=str;
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="form1">
+        <input type="text" name="text1">
+        <input type="button" name="b1" value="Click here" onclick="thongbao()">
+    </form>
+</body>
+<style>
+    body{
+        background-color: lightpink;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+</style>
+</html>

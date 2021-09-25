@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>String</title>
+    <script>
+        function doichuoi(){
+            var st = document.form1.text1.value;
+            document.form1.text2.value=st.toUpperCase();
+        }
+    </script>
+</head>
+<body onload="document.form1.text1.focus()">
+    <form action="" name="form1">
+        <input type="text" name="text1" onblur="doichuoi()">
+        <input type="text" name="text2">
+    </form>
+</body>
+<style>
+    body{
+        background-color: lightpink;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+</style>
+</html>
