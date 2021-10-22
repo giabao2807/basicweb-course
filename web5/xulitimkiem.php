@@ -1,26 +1,29 @@
-<?php
-    $IDNV=$_REQUEST['txtmanv'];
-    $hoten=$_REQUEST['txthoten'];
-    if($manv=="" || $hoten="") {header("Location:timkiem.html");}
+<?php 
+  $manv = $_REQUEST['txtmanv'];
+  $hoten = $_REQUEST['txthoten'];
+  if($manv == "" || $hoten == "") {
+    header("Location:timkiem.html");
+  } else {
+    $bienketnoi =mysqli_connect("localhost","root","") or die ("Khong thể kết nối với CSDL Mysql");
+    mysqli_select_db($bienketnoi,"nhansu");
+    $rs = mysqli_query($bienketnoi,"select * from nhanvien where IDNV='$manv' and Hoten='$hoten'");
+    if (mysqli_num_rows($rs) == 0)  header("Location:Timkiem.html");
     else {
-        $link = mysqli_connect("localhost","root","") or die ("Khong thể kết nối với CSDL Mysql");
-        //Lựa chọn cơ sở dữ liệu
-        mysqli_select_db($link,"nhansu");
-        $sql ="select * from NHANVIEN where IDNV='$IDNV' and hoten='$hoten'";
-        $rs= mysqli_query($link,$sql);
-        if(mysqli_num_rows($rs)==0) header("Location:timkiem.html");
-        else{
-            echo '<table border="1" width="100%">';
-            echo '<caption>Du lieu truy xuat tu bang NHANVIEN </caption>';
-            //in Tieu de cua bang
-            echo '<TR><TH>IDNV</TH><TH>Ho Ten</TH><TH>Diachi</TH><TH>IDPB</TH></TR>';
-            while($row=mysqli_fetch_array($rs)){
-                echo '<Tr><TD>'.$row["IDNV"].'</TD><TD>'.$row["hoten"].'</TD><TD>'.$row["Diachi"].'</TD><TD>'.$row["IDPB"].'</TD></Tr>';
-              }
-            echo '</table>';
-        }
-        //giai phong bo nho
-        mysqli_free_result($rs);
-        mysqli_close($link);
+      echo '<table border="1" width="100%">';
+      echo 
+        '<tr>
+          <th>Ma nhan vien</th>
+          <th>Ho ten</th>
+          <th>Ma phong ban</th>
+          <th>Dia chi</th>
+        </tr>';
+      while($row=mysqli_fetch_array($rs)) {
+        echo '<Tr><TD>'.$row["IDNV"].'</TD><TD>'.$row["hoten"].'</TD><TD>'.$row["IDPB"].'</TD><TD>'.$row["Diachi"].'</TD></Tr>';
+      }
+      echo '</table>' ;
+      echo '<a href="Timkiem.html">Back</a>';
     }
+      mysqli_free_result($rs);
+      mysqli_close($bienketnoi);
+  }
 ?>
