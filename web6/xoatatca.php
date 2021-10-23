@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
     <title>XoaNV</title>
+    <script>
+        function arrIDNV()
+        {
+            <?php
+                
+            ?>
+        }
+    </script>
 </head>
 <body>
     <?php
@@ -19,7 +27,7 @@
         echo '<Tr><TD>'.$row["IDNV"].'</TD><TD>'.$row["hoten"].'</TD><TD>'.$row["Diachi"].'</TD><TD>'.$row["IDPB"].'</TD><TD><input type="checkbox" name="'.$row["IDNV"].'"/></TD></Tr>';
       }
     echo '</table>';
-    echo '<input type="submit" value="Xoá nhân viên" />';
+    echo '<input type="submit" value="Xoá nhân viên" onclick="arrIDNV()"/>';
 
     //Giai phong cac ban ghi
     mysqli_free_result($rs);

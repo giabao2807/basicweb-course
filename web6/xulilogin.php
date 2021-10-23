@@ -9,7 +9,9 @@
     $rs = mysqli_query($bienketnoi,"select * from admin where usename='$user' and password='$pass'");
     if (mysqli_num_rows($rs) == 0)  header("Location:login.html");
     else {
-        header("Location:capnhat.php");
+        echo '<script>';
+        echo 'document.getElementById("t2").src = "./menulogin.html";';
+        echo '</script>';
     }
       mysqli_free_result($rs);
       mysqli_close($bienketnoi);
