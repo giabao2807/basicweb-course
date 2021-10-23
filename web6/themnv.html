@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <div class="container">
+      <h1>Login</h1>
+      <form action="xulythemnv.php" method="POST" name="form1">
+        <label>IDNV: </label>
+        <input type="text" name="IDNV" />
+        <br />
+        <label>Họ Tên: </label>
+        <input type="text" name="hoten" />
+        <br />
+        <label>Địa Chỉ: </label>
+        <input type="text" name="diachi" />
+        <br />
+        <label>IDPB: </label>
+        <input type="text" name="IDPB" />
+        <br />
+        <input type="submit" value="OK" />
+        <input type="reset" id="reset" />
+        <br />
+      </form>
+    </div>
+  </body>
+
+  <style>
+    body {
+      background-color: rgb(200, 181, 229);
+      color: rgb(58, 22, 86);
+      font-family: Arial, Helvetica, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .container {
+      background-color: white;
+      border: 2px solid rgb(58, 22, 86);
+      border-radius: 3px;
+      box-shadow: rgb(58, 22, 86) 0px 3px 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    input {
+      border: 1px solid rgb(58, 22, 86);
+      border-radius: 3px;
+      padding: 4px;
+      margin-top: 10px;
+    }
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: rgb(58, 22, 86);
+      color: white;
+      width: 80px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: rgb(152, 91, 198);
+    }
+  </style>
+</html>
