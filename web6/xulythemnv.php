@@ -2,7 +2,7 @@
     $IDNV =$_REQUEST['IDNV'];
     $hoten = $_REQUEST['hoten'];
     $diachi = $_REQUEST['diachi'];
-    $IDPB = $_REQUEST['IDPB'];
+    $IDPB = $_REQUEST['select'];
 
     //khai báo kết nối
     $link = mysqli_connect("localhost","root","") or die ("Khong thể kết nối với CSDL Mysql");
@@ -14,7 +14,7 @@
     if (mysqli_query($link, $sql)) {
         header("Location:ThongtinNVien.php");
     } else {
-    echo "Error updating record: " . mysqli_error($link);
+        header("Location:themnv.php");
     }
 
     //Giai phong cac ban ghi

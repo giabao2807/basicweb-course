@@ -8,10 +8,12 @@
       <li><a href="./ThongtinNVien.php" target="t3">Nhân viên</a></li>
       <li><a href="./ThongtinPB.php" target="t3">Phòng ban</a></li>
       <li><a href="./timkiem1.html" target="t3">Tìm kiếm</a></li>
-      <li><a href="./capnhat.php" target="t3">Cập nhật</a></li>
-      <li><a href="./xoathongtin.php" target="t3">Xoá thông tin</a></li>
-      <li><a href="./xoatatca.php" target="t3">Xoá tất cả</a></li>
-      <li><a href="./themnv.html" target="t3">Thêm nhân viên</a></li>
+      <li id ="login"><a href="./login.html" target="t3">Đăng nhập</a></li>
+      <li class="logined" style="display: none;"><a href="./capnhat.php" target="t3">Cập nhật</a></li>
+      <li class="logined" style="display: none;"><a href="./xoathongtin.php" target="t3">Xoá thông tin</a></li>
+      <li class="logined" style="display: none;"><a href="./xoatatca.php" target="t3">Xoá tất cả</a></li>
+      <li class="logined" style="display: none;"><a href="./themnv.php" target="t3">Thêm nhân viên</a></li>
+      <li class="logined" style="display: none;" onclick="changelogin()"><a href="./main.html" target="t3">Đăng xuất</a></li>
   </ul>
     
 </body>
@@ -23,7 +25,7 @@
       padding: 5px;
     }
     ul{
-      background: #b3c4ed;
+      background: #175276;
       width: 250px;
       padding: 0;
       list-style-type: none;
@@ -37,7 +39,7 @@
       padding: 0 1px;
     }
     li a {
-      color: rgb(39, 39, 94);
+      color: rgb(255, 255, 255);
       text-decoration: none;
       margin-top: 20px;
       box-shadow: inset;
@@ -52,3 +54,24 @@
   </style>
 </style>
 </html>
+<script>
+    function changelogin(){
+      window.localStorage.removeItem('login');
+    }
+    localStorage.clear();
+    setInterval(function () {
+      var login = localStorage.getItem('login');
+      var listItem = document.getElementsByClassName('logined');
+      if(login) {
+        for (i = 0; i < listItem.length; i++) {
+          listItem[i].style.display = "block";
+        }
+        document.getElementById('login').style.display = 'none';
+      } else {
+        for (i = 0; i < listItem.length; i++) {
+          listItem[i].style.display = "none";
+        }
+        document.getElementById('login').style.display = 'block';
+      }
+    },20)
+  </script>

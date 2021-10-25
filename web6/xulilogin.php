@@ -1,3 +1,4 @@
+
 <?php 
   $user = $_REQUEST['username'];
   $pass = $_REQUEST['password'];
@@ -9,11 +10,16 @@
     $rs = mysqli_query($bienketnoi,"select * from admin where usename='$user' and password='$pass'");
     if (mysqli_num_rows($rs) == 0)  header("Location:login.html");
     else {
-        echo '<script>';
-        echo 'document.getElementById("t2").src = "./menulogin.html";';
-        echo '</script>';
+      ?> 
+      <script>
+        localStorage.setItem('login', true);
+        location.replace("./main.html")
+      </script>
+      <?php
     }
       mysqli_free_result($rs);
       mysqli_close($bienketnoi);
   }
 ?>
+
+    

@@ -25,3 +25,23 @@
     ?>
 </body>
 </html>
+<style>
+    body{
+        font-family: "Nunito", sans-serif;
+    }
+  table, th, td{
+        border:1px solid #868585;   
+    }
+    table{
+        border-collapse:collapse;
+    }
+    table tr:nth-child(odd){
+        background-color:#eee;
+    }
+    table tr:nth-child(even){
+        background-color:white;
+    }
+    table tr:nth-child(1){
+        background-color:skyblue;
+    }
+</style>

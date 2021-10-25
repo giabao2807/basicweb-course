@@ -6,8 +6,7 @@
         var a = document.getElementById("IDNV").value;
         var b = document.getElementById("hoten").value;
         var c = document.getElementById("diachi").value;
-        var d = document.getElementById("IDPB").value;
-        if (a == "" || b == "" || c == "" || d == "") {
+        if (a == "" || b == "" || c == "") {
           alert("Mời nhập đủ thông tin!");
         }
       }
@@ -27,7 +26,20 @@
         <input type="text" name="diachi" id="diachi" />
         <br />
         <label>IDPB: </label>
-        <input type="text" name="IDPB" id="IDPB" />
+        <select name="select">
+          <?php
+              //khai báo kết nối
+              $link = mysqli_connect("localhost","root","") or die ("Khong thể kết nối với CSDL Mysql");
+              //Lựa chọn cơ sở dữ liệu
+              mysqli_select_db($link,"nhansu");
+              $sql ="select * from PHONGBAN";
+              $rs= mysqli_query($link,$sql);
+              while($row=mysqli_fetch_array($rs)){
+                echo '<option value="'.$row["IDPB"].'">'.$row["TenPB"].'</option>';
+              }  
+          ?>
+        </select>
+
         <br />
         <input type="submit" value="OK" onclick="checkInfo()" />
         <input type="reset" id="reset" />
@@ -57,6 +69,12 @@
     }
     input {
       border: 1px solid rgb(58, 22, 86);
+      border-radius: 3px;
+      padding: 4px;
+      margin-top: 10px;
+    }
+    select {
+       border: 1px solid rgb(58, 22, 86);
       border-radius: 3px;
       padding: 4px;
       margin-top: 10px;
