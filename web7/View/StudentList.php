@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     <title>Danh sach sinh vien</title>
-  </head>
-
+</head>
     <table>
       <caption>Student list</caption>
       <tr>
@@ -12,11 +11,11 @@
           <th>Detail</th>
       </tr>
       <?php
-        for($i=1; $i<=sizeof($studentList); $i++) {
+        for($i=0; $i<sizeof($studentList); $i++) {
           echo "<tr>
-                <td class='center'>" . $i . "</td>
+                <td class='center'>" . $studentList[$i]->id . "</td>
                 <td>" . $studentList[$i]->name . "</td>
-                <td class='center'><a href='?stid=" . $studentList[$i]->id . "'>...</a></td>
+                <td class='center'><a href='?stid=" .$studentList[$i]->id. "'>...</a></td>
               </tr>";
         }
       ?>

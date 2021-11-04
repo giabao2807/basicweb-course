@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AddStudent</title>
+    <title>Capnhat</title>
   </head>
+
   <body>
     <div class="container">
-      <h1>Insert Student</h1>
+      <h1>Update Student</h1>
       <form action="../Controller/C_Student.php" method="POST" name="form1">
+        <label>ID: </label>
+        <input type="text" name="id" id="id" value= '<?php echo $student->id ?>' readonly/>
+        <br />
         <label>Name: </label>
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" id="name" value= '<?php echo $student->name?>'/>
         <br />
         <label>Age: </label>
-        <input type="text" name="age" id="age" />
+        <input type="text" name="age" id="age" value= '<?php echo $student->age ?>'/>
         <br />
         <label>University: </label>
-        <input type="text" name="uni" id="uni" />
+        <input type="text" name="uni" id="uni" value= '<?php echo $student->university ?>'/>
         <br />
-        <input type="submit" value="OK" name="insert" />
+        <input type="submit" value="Ok" name="update"/>
         <input type="reset" id="reset" />
         <br />
       </form>
@@ -25,16 +28,17 @@
     </div>
   </body>
 </html>
-<style>
-  body {
-    color: #253e63;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-  }
-  .container {
+ <style>
+    body {
+      color: #253e63;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .container {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
@@ -84,4 +88,4 @@
     background-color: #aad4ef;
     box-shadow: #aad4ef 0px 1px 2px 0px, #aad4ef 0px 1px 3px 1px;
   }
-</style>
+  </style>

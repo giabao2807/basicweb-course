@@ -7,7 +7,7 @@
     <?php
         for($i=0; $i<sizeof($studentList); $i++) {
         echo '<div class="StudentDetail">';
-        echo "<p> ".$studentList[$i]->id.". <a href='?upid=".$studentList[$i]->id."'><b>".$studentList[$i]->name."</b></a> </p>";
+        echo "<p> ".$studentList[$i]->id.". <a href='?delid=".$studentList[$i]->id."'><b>".$studentList[$i]->name."</b></a> </p>";
         echo "<p>Age: " . $studentList[$i]->age . "</p>";
         echo "<p>University: " . $studentList[$i]->university . "</p>";
         echo '</div>';
