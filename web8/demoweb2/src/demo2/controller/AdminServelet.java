@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import demo2.bo.CheckLoginBo;
 import demo2.dao.AdminDao;
 import demo2.model.Admin;
 
 @WebServlet("/AdminServelet")
 public class AdminServelet extends HttpServlet {
-	private static AdminDao dao = new AdminDao();
 	private static final long serialVersionUID = 1L;
+	CheckLoginBo bo = new CheckLoginBo();
  
     public AdminServelet() {
         super();
@@ -25,9 +26,7 @@ public class AdminServelet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/login.jsp");
-		rd.forward(request, response);
+		doPost(request, response);
 	}
 
 	
@@ -35,7 +34,7 @@ public class AdminServelet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String address = "My sweet home";
-		if(isExist(username, password)) {
+		if(bo.isExist(username, password)) {
 			request.setAttribute("address", address);
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/welcome.jsp");
 			rd.forward(request, response);
@@ -44,14 +43,6 @@ public class AdminServelet extends HttpServlet {
 		}
 		
 	}
-	private boolean isExist(String use,String pass) {
-		List<Admin> listad = dao.getAllAdmin();
-		for (Admin ad : listad) {
-			if (ad.getUsername().equals(use) && ad.getPassword().equals(pass)) {
-				return true;
-			}
-		}
-		return false;
-	}
+	
 
 }

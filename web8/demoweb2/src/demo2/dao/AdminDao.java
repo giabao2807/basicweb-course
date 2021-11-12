@@ -34,7 +34,6 @@ public class AdminDao {
 			try {
 				rs.close();
 				st.close();
-				connection.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
