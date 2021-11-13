@@ -44,26 +44,4 @@ public class CheckLoginDao {
 		return false;
 	}
 
-	public List<Wife> getWifeList() {
-		List<Wife> wifes = new ArrayList<Wife>();
-		String query = "select * from wife";
-		try {
-			st = connection.createStatement();
-			rs = st.executeQuery(query);
-			while (rs.next()) {
-				Wife wife = new Wife(rs.getString("name"), rs.getString("address"), rs.getBoolean("alive"));
-				wifes.add(wife);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				rs.close();
-				st.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return wifes;
-	}
 }

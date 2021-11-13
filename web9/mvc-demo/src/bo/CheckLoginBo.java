@@ -15,8 +15,5 @@ public class CheckLoginBo {
 	public boolean isExistAcount(String user, String pass) {
 		return dao.isExistAcount(user, pass);
 	}
-	
-	public List<Wife> getAllWifes(){
-		return dao.getWifeList();
-	}
+
 }

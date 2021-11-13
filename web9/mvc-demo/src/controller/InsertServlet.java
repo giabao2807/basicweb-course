@@ -11,34 +11,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Wife;
-import bo.CheckLoginBo;
+import bo.WifeBo;
 
-@WebServlet("/CheckLoginServlet")
-public class CheckLoginServlet extends HttpServlet {
+
+@WebServlet("/InsertServlet")
+public class InsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
 
-    public CheckLoginServlet() {
+    public InsertServlet() {
         super();
     }
 
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+		String address = request.getParameter("address");
+		boolean alive =Boolean.getBoolean(request.getParameter("alive"));
 		
-		CheckLoginBo bo = new CheckLoginBo();
-		
-		if(bo.isExistAcount(username, password)) {
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/welcome1.jsp");
+		WifeBo bo = new WifeBo();
+		if(bo.addWife(name, address, alive)) {
+			List<Wife> wifes = bo.getAllWifes();
+			request.setAttribute("wifes", wifes);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/list.jsp");
 			rd.forward(request, response);
 		} else {
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/login.jsp");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/insert.jsp");
 			rd.forward(request, response);
 		}
+		
 	}
 
 }
