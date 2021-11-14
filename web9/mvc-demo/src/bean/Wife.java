@@ -1,6 +1,8 @@
 package bean;
 
 public class Wife {
+	private int id;
+
 	private String name;
 	private String address;
 	private Boolean alive;
@@ -8,11 +10,20 @@ public class Wife {
 	public Wife() {
 	}
 
-	public Wife(String name, String address, Boolean alive) {
+	public Wife(int id, String name, String address, Boolean alive) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.alive = alive;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {

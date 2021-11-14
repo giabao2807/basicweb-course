@@ -28,6 +28,11 @@ public class OptionalServlet extends HttpServlet {
 		WifeBo bo = new WifeBo();
 		
 		switch (index) {
+		case 0: {
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/welcome1.jsp");
+			rd.forward(request, response);
+			break;
+		}
 		case 1: {
 			List<Wife> wifes = bo.getAllWifes();
 			request.setAttribute("wifes", wifes);
@@ -41,7 +46,9 @@ public class OptionalServlet extends HttpServlet {
 			break;
 		}
 		case 3:{
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/update.jsp");
+			List<Wife> wifes = bo.getAllWifes();
+			request.setAttribute("wifes", wifes);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/updatelist.jsp");
 			rd.forward(request, response);
 			break;
 		}
@@ -52,6 +59,14 @@ public class OptionalServlet extends HttpServlet {
 		}
 		case 5:{
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/search.jsp");
+			rd.forward(request, response);
+			break;
+		}
+		case 11: {
+			int id = Integer.parseInt(request.getParameter("id"));
+			Wife wife = bo.getWifeByID(id);
+			request.setAttribute("wife", wife);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/update.jsp");
 			rd.forward(request, response);
 			break;
 		}

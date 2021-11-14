@@ -19,4 +19,10 @@ public class WifeBo {
 	public boolean addWife(String name, String address, boolean alive) {
 		return dao.addWife(name, address, alive);
 	}
+	public Wife getWifeByID(int id) {
+		return dao.getWifeByID(id);
+	}
+	public boolean updateWife(Wife w) {
+		return dao.updateWife(w);
+	}
 }
