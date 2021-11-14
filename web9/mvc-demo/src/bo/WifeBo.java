@@ -25,4 +25,10 @@ public class WifeBo {
 	public boolean updateWife(Wife w) {
 		return dao.updateWife(w);
 	}
+	public boolean deleteWife(int id) {
+		return dao.deleteWife(id);
+	}
+	public List<Wife> searchWife(String key,String value) {
+		return dao.searchWife(key,value);
+	}
 }

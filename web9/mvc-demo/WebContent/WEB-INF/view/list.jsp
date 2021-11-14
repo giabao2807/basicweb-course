@@ -27,7 +27,7 @@
 		</tr>
 		<%	} %>
 	</table>
-	 <a href="<%= request.getContextPath() %>/OptionalServlet?index=0">Return</a>
+	 <a href="javascript:history.back();">Return</a>
 
 </body>
 <style>

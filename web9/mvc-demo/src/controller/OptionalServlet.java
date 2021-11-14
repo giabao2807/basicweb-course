@@ -16,17 +16,17 @@ import bo.WifeBo;
 @WebServlet("/OptionalServlet")
 public class OptionalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  
-    public OptionalServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int index= Integer.parseInt(request.getParameter("index")) ;
+	public OptionalServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int index = Integer.parseInt(request.getParameter("index"));
 		WifeBo bo = new WifeBo();
-		
+
 		switch (index) {
 		case 0: {
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/welcome1.jsp");
@@ -40,24 +40,26 @@ public class OptionalServlet extends HttpServlet {
 			rd.forward(request, response);
 			break;
 		}
-		case 2:{
+		case 2: {
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/insert.jsp");
 			rd.forward(request, response);
 			break;
 		}
-		case 3:{
+		case 3: {
 			List<Wife> wifes = bo.getAllWifes();
 			request.setAttribute("wifes", wifes);
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/updatelist.jsp");
 			rd.forward(request, response);
 			break;
 		}
-		case 4:{
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/delete.jsp");
+		case 4: {
+			List<Wife> wifes = bo.getAllWifes();
+			request.setAttribute("wifes", wifes);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/deletelist.jsp");
 			rd.forward(request, response);
 			break;
 		}
-		case 5:{
+		case 5: {
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/view/search.jsp");
 			rd.forward(request, response);
 			break;
@@ -76,8 +78,8 @@ public class OptionalServlet extends HttpServlet {
 		}
 	}
 
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

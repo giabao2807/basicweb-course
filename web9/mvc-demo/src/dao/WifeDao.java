@@ -85,7 +85,6 @@ public class WifeDao {
 	}
 	
 	public boolean updateWife(Wife w) {
-		System.out.println(w.getAlive());
 		String query ="update wife set name=? ,address=?,alive=? where id=?";
 		try {
 			pst = connection.prepareStatement(query);
@@ -106,6 +105,53 @@ public class WifeDao {
 			}
 		}
 		return false;
+	}
+	
+	public boolean deleteWife(int id) {
+		String query ="delete from wife where id =?";
+		try {
+			pst = connection.prepareStatement(query);
+			pst.setInt(1, id);
+			if (pst.executeUpdate() > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pst.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
+	
+	public List<Wife> searchWife(String key, String value) {
+		List<Wife> wifes = new ArrayList<Wife>();
+		String query ="select * from wife where " + key + " =?";
+		try {
+			pst = connection.prepareStatement(query);
+			pst.setString(1, value);
+			if(key.equals("alive")) {
+				boolean valuedb = value.toLowerCase().equals("true")?true:(value.toLowerCase().equals("false")?false:null);
+				pst.setBoolean(1, valuedb);
+			}
+			rs=pst.executeQuery();
+			while (rs.next()) {
+				wifes.add(new Wife(rs.getInt("id"), rs.getString("name"), rs.getString("address"), rs.getBoolean("alive")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return wifes;
 	}
 	
 	
