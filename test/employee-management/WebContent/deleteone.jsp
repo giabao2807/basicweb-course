@@ -26,7 +26,7 @@
 			<td><%=nv.getHoten() %></td>
 			<td><%=nv.getIdpb() %></td>
 			<td><%=nv.getDiachi() %></td>
-			<td><a href="<%=request.getContextPath()%>/DeleteServlet?index=1&idnv<%=nv.getIdnv()%>" target ="_self">xxx</a></td>
+			<td><a href="<%=request.getContextPath()%>/DeleteServlet?index=1&idnv=<%=nv.getIdnv()%>" target ="_self">xxx</a></td>
 		</tr>
 		<%	} %>
 	</table>

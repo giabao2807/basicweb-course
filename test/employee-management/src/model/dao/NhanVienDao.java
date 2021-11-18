@@ -66,7 +66,7 @@ public class NhanVienDao {
 	}
 
 	public boolean deleteById(int id) {
-		String query = "delete from nhanvien where id =?";
+		String query = "delete from nhanvien where idnv=?";
 		try {
 			pst = connection.prepareStatement(query);
 			pst.setInt(1, id);

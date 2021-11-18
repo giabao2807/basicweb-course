@@ -82,6 +82,14 @@ public class OptionalServlet extends HttpServlet {
 			rd.forward(request, response);
 			break;
 		}
+		
+		case 8: {
+			List<PhongBan> pbs = pbbo.getAll();
+			request.setAttribute("pbs", pbs);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/addnv.jsp");
+			rd.forward(request, response);
+			break;
+		}
 
 		case 11: {
 			String idpb = request.getParameter("idpb");
