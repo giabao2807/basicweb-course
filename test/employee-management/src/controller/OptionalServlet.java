@@ -68,6 +68,20 @@ public class OptionalServlet extends HttpServlet {
 			rd.forward(request, response);
 			break;
 		}
+		case 6:{
+			List<NhanVien> nvs = nvbo.getAll();
+			request.setAttribute("nvs", nvs);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/deleteone.jsp");
+			rd.forward(request, response);
+			break;
+		}
+		case 7:{
+			List<NhanVien> nvs = nvbo.getAll();
+			request.setAttribute("nvs", nvs);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/deletelist.jsp");
+			rd.forward(request, response);
+			break;
+		}
 
 		case 11: {
 			String idpb = request.getParameter("idpb");
