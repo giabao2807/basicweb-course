@@ -10,11 +10,12 @@
 </head>
 <body>
 	<table>
-		<caption>List Phong Ban</caption>
+		<caption>List People</caption>
 		<tr>
-			<th>IDPB</th>
-			<th>TenPB</th>
-			<th>Mota</th>
+			<th>ID</th>
+			<th>lastname</th>
+			<th>firstname</th>
+			<th>Roles</th>
 			<th>Xoa</th>
 			<th>Capnhat</th>
 		</tr>
@@ -26,12 +27,14 @@
 			<td class='center'><%=pp.getId()%></td>
 			<td><%=pp.getLastname()%></td>
 			<td><%=pp.getFirstname() %></td>
-			<td><a href="<%=request.getContextPath()%>/DeleteServlet?id&value=<%=pp.getId() %>" target ="_self">xxx</a></td>
-			<td><a href="<%=request.getContextPath()%>/UpdateServlet?id&value=<%=pp.getId() %>" target ="_self">Capnhat</a></td>
+			<td><%=pp.getRoles() %></td>
+			<td><a href="<%=request.getContextPath()%>/DeleteServlet?id=<%=pp.getId() %>" target ="_self">xxx</a></td>
+			<td><a href="<%=request.getContextPath()%>/UpdateServlet?id=<%=pp.getId() %>" target ="_self">Capnhat</a></td>
 		</tr>
 		<%	} %>
 	</table>
 	 <a href="javascript:history.back();">Return</a>
+	 <a href=" <%=request.getContextPath()%>/CheckLogoutServlet">Logout</a>
 
 </body>
 <style>

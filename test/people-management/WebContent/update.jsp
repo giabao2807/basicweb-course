@@ -1,18 +1,36 @@
+<%@page import="model.bean.People"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ErrorLogin</title>
+    <title>Capnhat</title>
   </head>
 
   <body>
+  <% People pp = (People)request.getAttribute("pp");
+  	 %>
     <div class="container">
-      <h1>Error</h1>
-      <p>Invalid username and password</p>
-      <p>Please try again or register for a new account</p>
-       <a href="<%=request.getContextPath()%>/OptionalServlet?index=1">Login</a>
-       <a href="<%=request.getContextPath()%>/OptionalServlet?index=2">Register</a>
+      <h1>Update People</h1>
+      <form action="<%=request.getContextPath() %>/UpdateServlet"  method="POST" name="form1">
+       <label>id: </label>
+        <input type="text" name="id" id="id" value= "<%=pp.getId() %>" readonly />
+        <br />
+        <label>lastname: </label>
+        <input type="text" name="lastname" id="lastname" value= "<%=pp.getLastname() %>" />
+        <br />
+         <label>firstname: </label>
+        <input type="text" name="firstname" id="firstname" value= "<%=pp.getFirstname()%>" readonly/>
+        <br />
+        <label>Roles: </label>
+        <input type="text" name="roles" id="roles" value= "<%=pp.getRoles()%>" />
+        <br />
+        <input type="submit" value="Ok" name="update"/>
+        <input type="reset" id="reset" />
+        <br />
+      </form>
+       <a href="javascript:history.back();">Return</a>
+       <a href=" <%=request.getContextPath()%>/CheckLogoutServlet">Logout</a>
     </div>
   </body>
 

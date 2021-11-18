@@ -16,7 +16,7 @@ public class PeopleBo {
 		return ppdao.getAll();
 	}
 	
-	public People getById(String id) {
+	public People getById(int id) {
 		return ppdao.getById(id);
 	}
 	

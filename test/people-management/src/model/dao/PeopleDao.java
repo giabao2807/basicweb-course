@@ -42,11 +42,11 @@ public class PeopleDao {
 	}
 	
 	
-	public People getById(String id) {
+	public People getById(int id) {
 		String query = "select * from people where id =?";
 		try {
 			pst = connection.prepareStatement(query);
-			pst.setString(1, id);
+			pst.setInt(1, id);
 			rs=pst.executeQuery();
 			if (rs.next()) {
 				return new People(rs.getInt("id"), rs.getString("lastname"), rs.getString("firstname"),rs.getString("roles"));

@@ -34,12 +34,7 @@ public class AdminDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				rs.close();
-				st.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+				SqlUtils.close(rs,st);
 		}
 		return admins;
 	}
@@ -57,12 +52,7 @@ public class AdminDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			try {
-				rs.close();
-				pst.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			SqlUtils.close(rs,pst);
 		}
 		return false;
 	}
