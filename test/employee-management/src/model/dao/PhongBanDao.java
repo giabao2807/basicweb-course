@@ -30,7 +30,7 @@ public class PhongBanDao {
 			st = connection.createStatement();
 			rs = st.executeQuery(query);
 			while (rs.next()) {
-				PhongBan pb = new PhongBan(rs.getString("IDPB"), rs.getString("tenpb"), rs.getString("mote"));
+				PhongBan pb = new PhongBan(rs.getString("IDPB"), rs.getString("tenpb"), rs.getString("mota"));
 				pbs.add(pb);
 			}
 		} catch (SQLException e) {
@@ -39,6 +39,22 @@ public class PhongBanDao {
 			SqlUtils.close(rs,st);
 		}
 		return pbs;
+	}
+	public PhongBan getById(String id) {
+		String query = "select * from phongban where idpb =?";
+		try {
+			pst = connection.prepareStatement(query);
+			pst.setString(1, id);
+			rs=pst.executeQuery();
+			if (rs.next()) {
+				return new PhongBan(rs.getString("IDPB"), rs.getString("tenpb"), rs.getString("mota"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs,pst);
+		}
+		return null;
 	}
 	public boolean update(PhongBan pb) {
 		boolean result=false;

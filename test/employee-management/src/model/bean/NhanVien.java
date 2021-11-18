@@ -50,6 +50,13 @@ public class NhanVien {
 	public void setDiachi(String diachi) {
 		this.diachi = diachi;
 	}
+
+
+	@Override
+	public String toString() {
+		return "NhanVien [idnv=" + idnv + ", hoten=" + hoten + ", idpb=" + idpb + ", diachi=" + diachi + "]";
+	}
+	
 	
 	
 }

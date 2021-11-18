@@ -87,10 +87,8 @@ public class NhanVienDao {
 		try {
 			pst = connection.prepareStatement(query);
 			pst.setString(1, value);
-			if (key.equals("alive")) {
-				boolean valuedb = value.toLowerCase().equals("true") ? true
-						: (value.toLowerCase().equals("false") ? false : null);
-				pst.setBoolean(1, valuedb);
+			if (key.equals("IDNV")) {
+				pst.setInt(1, Integer.parseInt(value));
 			}
 			rs = pst.executeQuery();
 			while (rs.next()) {

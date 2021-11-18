@@ -52,6 +52,8 @@ public class OptionalServlet extends HttpServlet {
 			break;
 		}
 		case 3: {
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/searchnv.jsp");
+			rd.forward(request, response);
 			break;
 		}
 		case 4: {
@@ -60,6 +62,28 @@ public class OptionalServlet extends HttpServlet {
 			break;
 		}
 		case 5: {
+			List<PhongBan> pbs = pbbo.getAll();
+			request.setAttribute("pbs", pbs);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/updatelist.jsp");
+			rd.forward(request, response);
+			break;
+		}
+
+		case 11: {
+			String idpb = request.getParameter("idpb");
+			PhongBan pb = pbbo.getById(idpb);
+			System.out.println(idpb);
+			if (pb != null) {
+				request.setAttribute("pb", pb);
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/updatedetail.jsp");
+				rd.forward(request, response);
+
+			} else {
+				List<PhongBan> pbs = pbbo.getAll();
+				request.setAttribute("pbs", pbs);
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/updatelist.jsp");
+				rd.forward(request, response);
+			}
 			break;
 		}
 		default:
@@ -67,8 +91,6 @@ public class OptionalServlet extends HttpServlet {
 			rd.forward(request, response);
 		}
 	}
-
-	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

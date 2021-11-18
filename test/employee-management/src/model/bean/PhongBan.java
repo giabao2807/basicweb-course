@@ -39,5 +39,12 @@ public class PhongBan {
 	public void setMota(String mota) {
 		this.mota = mota;
 	}
+
+	@Override
+	public String toString() {
+		return "PhongBan [idpb=" + idpb + ", tenpb=" + tenpb + ", mota=" + mota + "]";
+	}
+	
+	
 	
 }

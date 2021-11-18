@@ -19,4 +19,8 @@ public class PhongBanBo {
 	public boolean update(PhongBan pb) {
 		return pbdao.update(pb);
 	}
+	
+	public PhongBan getById(String id) {
+		return pbdao.getById(id);
+	}
 }
