@@ -40,13 +40,15 @@ public class DeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String msv = request.getParameter("msv");
+		SinhVienBo bo = new SinhVienBo();
+		KhoaBo khoabo = new KhoaBo();
+		SinhVien sv = bo.getSvByMsv(msv);
 
-		svbo.DeleteSinhVien(msv);
-		request.setAttribute("khoas", khoaBo.getAll());
-		request.setAttribute("svs", svbo.getAll());
+		request.setAttribute("sv", sv);
+		request.setAttribute("khoas", khoabo.getAll());
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/list.jsp");
-		dispatcher.forward(request, response);
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/delete.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
@@ -55,7 +57,14 @@ public class DeleteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+		String msv = request.getParameter("msv");
+
+		svbo.DeleteSinhVien(msv);
+		request.setAttribute("khoas", khoaBo.getAll());
+		request.setAttribute("svs", svbo.getAll());
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/list.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

@@ -30,7 +30,7 @@
 				<option value="all">Tất cả</option>
 	</select>
 	</form>
-    <a class="button" href="<%=request.getContextPath()%>/OptionalServlet?index=1" >Thêm mới</a>
+    <a class="button" style="margin-left:70%;" href="<%=request.getContextPath()%>/OptionalServlet?index=1" >Thêm mới</a>
     </br>
 	<table>
 		<tr>
@@ -43,17 +43,23 @@
 		</tr>
 		<%
 		List<SinhVien> svs = (List<SinhVien>)request.getAttribute("svs");
+		String tenKhoa = "abc";
 		for(SinhVien sv : svs){
+			for(Khoa khoa : khoas){
+				if (khoa.getMakhoa().equals(sv.getMakhoa())){
+					tenKhoa=khoa.getName();
+				}
+			}
 		%>
 		<tr>
 			<td class='center'><%=sv.getMsv() %></td>
 			<td><%=sv.getName() %></td>
 			<td><%=sv.getSex() %></td>
-			<td><%=sv.getMakhoa() %></td>
+			<td><%=tenKhoa %></td>
             <td><a class='center' href="<%=request.getContextPath()%>/UpdateServlet?msv=<%=sv.getMsv() %>" ><i class="fas fa-edit"></i></a></td>
             <td><a class='center' href="<%=request.getContextPath()%>/DeleteServlet?msv=<%=sv.getMsv() %>" ><i class="fas fa-trash-alt"></i></a></td>
 		</tr>
-		<%	} %>
+		<%} %>
 	</table>
 </body>
 <style>
@@ -67,12 +73,12 @@
             padding: 20px;
         }
        .selectform{
-        width: 100%;
+        width: 50%;
         }
       .selectform select {
 		background-color: white;
 		color: #0c476e;
-		width: 30%;
+		width: 100%;
 		font-size: small;
 		border: none;
 		border-radius: 4px;

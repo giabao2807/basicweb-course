@@ -39,6 +39,8 @@ public class OptionalServlet extends HttpServlet {
 		
 		switch (index) {
 		case 0: {
+			request.setAttribute("svs", svbo.getAll());
+			request.setAttribute("khoas", khoabo.getAll());
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/list.jsp");
 			rd.forward(request, response);
 			break;

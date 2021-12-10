@@ -22,8 +22,8 @@
 	  <% SinhVien sv = (SinhVien)request.getAttribute("sv");
   	 %>
 	<div class="container">
-		<h1>Sửa sinh viên</h1>
-		<form action="<%=request.getContextPath()%>/InsertServlet"
+		<h1>Xoá sinh viên</h1>
+		<form action="<%=request.getContextPath()%>/DeleteServlet?msv=<%=sv.getMsv() %>"
 			method="POST" name="form1">
 			<label>MSSV: </label>
 			<input type="text" name="msv" value ="<%=sv.getMsv()%>" readonly/> 
@@ -59,8 +59,8 @@
 				<%}	} %>
 			</select> 
 			<br /> 
-			<input type="submit" value="OK" onclick="checkInfo()" /> 
-			<a class="button" href="<%=request.getContextPath()%>/OptionalServlet?index=0" >Quay lại</a><br />
+			<input type="submit" value="Xác nhận"  /> 
+			<a class="button" href="<%=request.getContextPath()%>/OptionalServlet?index=0" >Quay lại</a> <br />
 		</form>
 	</div>
 </body>
@@ -91,6 +91,7 @@ input {
 	padding: 4px;
 	margin-top: 10px;
 }
+
 .select {
 	background-color: #0c476e;
 	color: #FFF3F6;
@@ -113,6 +114,7 @@ input[type="submit"], .button{
 	background-color: #0c476e;
 	color: white;
 	width: 80px;
+	height: 30px;
 	margin-top: 20px;
 	cursor: pointer;
 }

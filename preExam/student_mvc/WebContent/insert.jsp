@@ -1,3 +1,4 @@
+<%@page import="model.bean.SinhVien"%>
 <%@page import="model.bean.Khoa"%>
 <%@page import="model.bo.KhoaBo"%>
 <%@page import="java.util.List"%>
@@ -7,14 +8,24 @@
 <html lang="en">
 <head>
 <script>
-      function checkInfo() {
-        var a = document.getElementById("IDNV").value;
-        var b = document.getElementById("hoten").value;
-        var c = document.getElementById("diachi").value;
-        if (a == "" || b == "" || c == "") {
-          alert("Mời nhập đủ thông tin!");
-        }
-      }
+function checkInput() {
+	var msv = document.getElementById("msv").value;
+	var name = document.getElementById("name").value;
+	if (msv == "" || name == "") {
+		alert("Mời nhập đủ thông tin!");
+		return false;
+	}
+	<%
+	List<SinhVien> svs = (List<SinhVien>)request.getAttribute("svs");
+    for(SinhVien sv : svs){
+    	%>
+    	if(msv == <%=sv.getMsv()%> ) {
+    		alert("Mã SV này đã tồn tại, mời nhập mã khác!");
+    	}
+    	<%
+    }
+	%>
+}
     </script>
 </head>
 <body>
@@ -45,8 +56,8 @@
 				<%	} %>
 			</select> 
 			<br /> 
-			<input type="submit" value="OK" onclick="checkInfo()" /> 
-			<input type="reset" id="reset" /> <br />
+			<input type="submit" value="OK" onclick="checkInput()" /> 
+			<a class="button" href="<%=request.getContextPath()%>/OptionalServlet?index=0" >Quay lại</a><br />
 		</form>
 	</div>
 </body>
@@ -89,14 +100,20 @@ input {
 	padding: 5px;
 	margin: 10px auto 20px;
 }
-input[type="submit"], input[type="reset"] {
+.button{
+      	margin-top: 20px;
+      	cursor: pointer;
+      	padding:5px;
+      	text-decoration: none;
+}
+input[type="submit"], .button{
 	background-color: #0c476e;
 	color: white;
 	width: 80px;
 	margin-top: 20px;
 	cursor: pointer;
 }
-input[type="submit"]:hover, input[type="reset"]:hover {
+input[type="submit"]:hover, .button:hover {
 	background-color: white;
 	color: #0c476e
 }
